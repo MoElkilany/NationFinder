@@ -21,7 +21,7 @@ struct SplashScreen: View {
                 .ignoresSafeArea()
             
             VStack {
-                Text("Your Country")
+                Text("Nation Finder")
                     .font(.largeTitle)
                     .foregroundColor(.white)
                 
