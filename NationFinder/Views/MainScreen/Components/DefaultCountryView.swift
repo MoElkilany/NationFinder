@@ -35,5 +35,10 @@ struct DefaultCountryView: View {
             .frame(height: 65)
             .borderedBackground()
         }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            viewModel.selectedCountry = viewModel.getCurrentUserCountry()
+            viewModel.isShowingCountryDetail = true
+        }
     }
 }
