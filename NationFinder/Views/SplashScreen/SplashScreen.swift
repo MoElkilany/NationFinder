@@ -37,9 +37,9 @@ struct SplashScreen: View {
                 }
             }
         }
-//        .fullScreenCover(isPresented: $showMainScreen) {
-            // MainScreen(countries: viewModel.countries)
-//        }
+        .fullScreenCover(isPresented: $showMainScreen) {
+             MainScreen(countries: viewModel.countries)
+        }
         .onAppear {
             viewModel.loadCountryData()
         }
