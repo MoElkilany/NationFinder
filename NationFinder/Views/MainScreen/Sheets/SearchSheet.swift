@@ -19,9 +19,8 @@ struct SearchSheet: View {
                     ForEach(viewModel.searchList, id: \.self) { item in
                         HStack {
                             SmallFlagView(url: item.flags?.png ?? "https://flagcdn.com/w320/eg.png")
-                            Text(item.capital ?? "")
-                            Spacer()
-                            Text(item.currencies?.first?.name ?? "-")
+                            Text(item.name ?? "")
+                        
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {

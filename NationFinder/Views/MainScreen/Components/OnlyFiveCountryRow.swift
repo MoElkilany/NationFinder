@@ -14,10 +14,9 @@ struct OnlyFiveCountryRow: View {
     var body: some View {
         HStack(spacing: 12) {
             SmallFlagView(url: country.flags?.png ?? "https://flagcdn.com/w320/eg.png")
-            Text(country.capital ?? "")
+            Text(country.name ?? "")
                 .foregroundColor(.color808080)
-            Text(country.currencies?.first?.name ?? "")
-                .foregroundColor(.color808080)
+           
             Spacer()
         }
         .padding()

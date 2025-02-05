@@ -24,7 +24,16 @@ class MainViewModel: ObservableObject {
         if searchText.isEmpty {
             return countries
         } else {
-            return countries.filter { $0.capital?.localizedCaseInsensitiveContains(searchText) ?? false }
+            return countries.filter { $0.name?.localizedCaseInsensitiveContains(searchText) ?? false }
+        }
+    }
+    
+    
+    var searchTempList: [CountryModel] {
+        if searchText.isEmpty {
+            return countries
+        } else {
+            return countries.filter { $0.name?.localizedCaseInsensitiveContains(searchText) ?? false }
         }
     }
     

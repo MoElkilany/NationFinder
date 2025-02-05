@@ -16,7 +16,6 @@ struct OnlyFiveCountriesView: View {
             if viewModel.selectedFiveCountries.isEmpty {
                 Image(.emptyView)
                 Text("There’s No Country Added, You Can Add Only 5 Countries.")
-                    .font(.caption)
                     .foregroundColor(.color808080)
                     .multilineTextAlignment(.center)
             } else {

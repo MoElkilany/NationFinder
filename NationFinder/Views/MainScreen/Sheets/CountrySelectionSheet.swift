@@ -12,24 +12,31 @@ struct CountrySelectionSheet: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(viewModel.countries, id: \.self) { item in
-                    HStack {
-                        SmallFlagView(url: item.flags?.png ?? "https://flagcdn.com/w320/eg.png")
-                        Text(item.capital ?? "")
-                        Text(item.currencies?.first?.symbol ?? "")
-                        Spacer()
-                        Image(viewModel.tempSelectedCountries.contains(item) == true ? .checkIcon : .uncheckIcon)
-                        
-                    }
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        viewModel.toggleCountrySelection(item)
+            
+            VStack{
+                SearchTextFieldView { text in
+                    viewModel.searchText = text
+                }
+                .padding(.horizontal)
+                
+                List {
+                    ForEach(viewModel.searchTempList, id: \.self) { item in
+                        HStack {
+                            SmallFlagView(url: item.flags?.png ?? "https://flagcdn.com/w320/eg.png")
+                            Text(item.name ?? "")
+                            Spacer()
+                            Image(viewModel.tempSelectedCountries.contains(item) == true ? .checkIcon : .uncheckIcon)
+                            
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            viewModel.toggleCountrySelection(item)
+                        }
                     }
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
                         viewModel.finalizeCountrySelection()
                     }
