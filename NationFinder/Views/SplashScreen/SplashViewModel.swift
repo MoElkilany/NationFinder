@@ -32,9 +32,9 @@ class SplashViewModel: ObservableObject {
                        splashState = .loaded
                    }
                } catch let error as AppError {
-                   splashState = .error("Error: \(error)")
+                splashState = .error("Error: \(error)")
                } catch {
-                   splashState = .error("Unknown error: \(error)")
+                splashState = .error("Internal Server Error")
                }
            }
        }

@@ -10,8 +10,6 @@ import SwiftData
 
 @main
 struct NationFinderApp: App {
-
-
     var body: some Scene {
         WindowGroup {
             SplashScreen(viewModel: SplashViewModel())

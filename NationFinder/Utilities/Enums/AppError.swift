@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum AppError: Error, LocalizedError {
+enum AppError: Error, LocalizedError,Equatable {
     case noData
     case urlError
     case decodingError
-    case networkError(Error)
+    case networkError(String)
 
     var errorDescription: String? {
         switch self {
@@ -22,7 +22,7 @@ enum AppError: Error, LocalizedError {
         case .decodingError:
             return "Failed to decode data."
         case .networkError(let error):
-            return "Network error: \(error.localizedDescription)"
+            return "Network error: \(error)"
         }
     }
 }
