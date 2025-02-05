@@ -14,7 +14,7 @@ struct NationFinderApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreen(viewModel: SplashViewModel())
         }
     }
 }

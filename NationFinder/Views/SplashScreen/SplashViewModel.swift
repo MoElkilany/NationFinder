@@ -1,6 +1,6 @@
 //
 //  SplashViewModel.swift
-//  YourCountryApp
+//  NationFinder
 //
 //  Created by Mohamed Elkilany on 03/02/2025.
 //

@@ -1,6 +1,6 @@
 //
 //  SplashScreen.swift
-//  YourCountryApp
+//  NationFinder
 //
 //  Created by Mohamed Elkilany on 05/02/2025.
 //
@@ -33,13 +33,13 @@ struct SplashScreen: View {
                 case .error(let message):
                     ErrorView(message: message)
                 case .empty:
-                    EmptyView()
+                    EmptySplashView()
                 }
             }
         }
-        .fullScreenCover(isPresented: $showMainScreen) {
+//        .fullScreenCover(isPresented: $showMainScreen) {
             // MainScreen(countries: viewModel.countries)
-        }
+//        }
         .onAppear {
             viewModel.loadCountryData()
         }
