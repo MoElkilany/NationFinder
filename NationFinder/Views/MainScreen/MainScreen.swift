@@ -34,7 +34,7 @@ struct MainScreen: View {
             }
             .navigationDestination(isPresented: $viewModel.isShowingCountryDetail) {
                 if let selectedCountry = viewModel.selectedCountry {
-//                    CountryDetailScreen(selectedCountry: selectedCountry)
+                    CountryDetailScreen(selectedCountry: selectedCountry)
                 }
             }
         }
