@@ -11,7 +11,7 @@ struct SearchBarView: View {
 
     var body: some View {
         HStack {
-            Text("Nation Finder")
+            Text(AppConstants.AppText.nationFinder)
                 .font(.title2)
                 .fontWeight(.heavy)
                 .foregroundColor(.color121441)
@@ -20,7 +20,7 @@ struct SearchBarView: View {
             HStack {
                 Image(.whiteSearchIcon)
                     .padding(.horizontal, 8)
-                Text("Search")
+                Text(AppConstants.AppText.search)
                     .foregroundColor(.white)
             }
             .frame(width: 130 , height: 40)

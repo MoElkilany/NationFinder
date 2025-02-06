@@ -14,7 +14,7 @@ struct SplashContentView: View {
         
         VStack {
             
-            Text("Nation Finder")
+            Text(AppConstants.AppText.nationFinder)
                 .font(.largeTitle)
                 .foregroundColor(.white)
             switch splashState {

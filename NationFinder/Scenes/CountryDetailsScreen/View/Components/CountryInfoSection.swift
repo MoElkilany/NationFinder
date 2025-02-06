@@ -13,12 +13,13 @@ struct CountryInfoSection: View {
 
     var body: some View {
         VStack {
-            CountryInfoView(title: "Country:", value: country.name ?? "" )
-            CountryInfoView(title: "Capital:", value: country.capital ?? "" )
+            CountryInfoView(title: AppConstants.AppText.country, value: country.name ?? "" )
+            CountryInfoView(title: AppConstants.AppText.capital, value: country.capital ?? "" )
             CurrencyInfoView(currencies: country.currencies)
-            CountryInfoView(title: "Languages:", value: country.languages?.first?.name ?? "-")
+            CountryInfoView(title: AppConstants.AppText.languages, value: country.languages?.first?.name ?? "-")
         }
         .padding()
         .borderedBackground()
     }
 }
+//

@@ -38,7 +38,7 @@ class MainViewModel: ObservableObject {
     
     func fetchCurrentUserCountry() -> CountryModel? {
         return allCountries.first(where: { $0.name == currentUserCountry }) ??
-        allCountries.first(where: { $0.name == "Turkey" })
+        allCountries.first(where: { $0.name == AppConstants.AppText.turkey })
     }
     
     func countrySelection(_ country: CountryModel) {

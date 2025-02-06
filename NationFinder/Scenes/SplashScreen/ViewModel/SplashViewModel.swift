@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 class SplashViewModel: ObservableObject {
     
@@ -26,7 +25,7 @@ class SplashViewModel: ObservableObject {
                 let countryData = try await repository.getCountries()
                 handleSuccess(with: countryData)
             } catch {
-                handleFailure(message: error is AppError ? "Error: \(error)" : "Internal Server Error")
+                handleFailure(message: error is AppError ? "Error: \(error)" : AppConstants.AppError.internalServerError)
             }
         }
     }

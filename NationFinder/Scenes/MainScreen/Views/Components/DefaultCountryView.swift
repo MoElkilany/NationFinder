@@ -13,7 +13,7 @@ struct DefaultCountryView: View {
     
     var body: some View {
         VStack {
-            TitleRowView(title: "Default country :")
+            TitleRowView(title: AppConstants.AppText.defaultCountry)
             HStack(spacing: 12) {
                 SmallFlagView(url: viewModel.fetchCurrentUserCountry()?.flags?.png ?? "https://flagcdn.com/w320/eg.png")
                 VStack(alignment: .leading) {

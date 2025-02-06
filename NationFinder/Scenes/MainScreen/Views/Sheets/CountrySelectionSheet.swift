@@ -47,13 +47,12 @@ struct CountrySelectionSheet: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
+                    Button(AppConstants.AppText.done) {
                         viewModel.confirmSelectedCountries()
                         viewModel.cancelSearchAction()
                     }
                 }
             }
         }
-       
     }
 }

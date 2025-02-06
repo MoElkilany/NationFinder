@@ -13,7 +13,7 @@ struct CurrencyInfoView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            TitleRowView(title: "Currency:")
+            TitleRowView(title: AppConstants.AppText.currency)
             
             HStack {
                 Text(currencies?.first?.name ?? "-")

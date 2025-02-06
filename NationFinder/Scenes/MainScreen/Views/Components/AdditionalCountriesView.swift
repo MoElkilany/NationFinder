@@ -12,7 +12,7 @@ struct AdditionalCountriesView: View {
     
     var body: some View {
         HStack {
-            Text("Additional countries :")
+            Text(AppConstants.AppText.additionalCountry)
                 .foregroundColor(.color0B0C26)
             Spacer()
             Button {

@@ -16,13 +16,13 @@ enum AppError: Error, LocalizedError,Equatable {
     var errorDescription: String? {
         switch self {
         case .noData:
-            return "No data received from the server."
+            return AppConstants.AppError.noData
         case .urlError:
-            return "Invalid URL."
+            return AppConstants.AppError.urlError
         case .decodingError:
-            return "Failed to decode data."
+            return AppConstants.AppError.decodingError
         case .networkError(let error):
-            return "Network error: \(error)"
+            return AppConstants.AppError.networkError + " " + error
         }
     }
 }

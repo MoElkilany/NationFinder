@@ -14,7 +14,7 @@ struct SearchTextFieldView: View {
     
     var body: some View {
         HStack(spacing: 4) {
-            TextField("Search For Country", text: $searchText)
+            TextField(AppConstants.AppText.searchForCountry, text: $searchText)
                 .padding(8)
                 .padding(.horizontal, 32)
                 .frame(height: 50)
@@ -35,7 +35,7 @@ struct SearchTextFieldView: View {
                 Button(action: {
                     self.searchText = ""
                 }) {
-                    Text("Cancel")
+                    Text(AppConstants.AppText.cancel)
                         .foregroundColor(.color0B0C26)
                 }
                 .padding(.trailing, 10)

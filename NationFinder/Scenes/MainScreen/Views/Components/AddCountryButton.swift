@@ -16,7 +16,7 @@ struct AddCountryButton: View {
             viewModel.isCountrySelectionSheetOpen.toggle()
         } label: {
             HStack {
-                Text(" + Add Country")
+                Text(AppConstants.AppText.addCountry)
                     .foregroundColor(.white)
                     .fontWeight(.bold)
             }

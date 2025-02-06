@@ -14,7 +14,7 @@ struct EmptySplashView: View {
             Image(systemName: "exclamationmark.triangle")
                 .resizable()
                 .frame(width: 100, height: 100)
-            Text("There is No Data")
+            Text(AppConstants.AppText.noData)
                 .font(.headline)
                 .padding()
         }

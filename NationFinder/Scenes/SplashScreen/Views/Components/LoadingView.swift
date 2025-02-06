@@ -10,7 +10,7 @@ import SwiftUI
 
 struct LoadingView: View {
     var body: some View {
-        ProgressView("Loading...")
+        ProgressView(AppConstants.AppText.loading)
             .foregroundColor(.white)
             .progressViewStyle(CircularProgressViewStyle(tint: .white))
             .padding()

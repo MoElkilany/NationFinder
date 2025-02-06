@@ -16,7 +16,7 @@ struct SelectedCountriesListView: View {
             VStack(spacing: 12) {
                 if viewModel.selectedCountriesList.isEmpty {
                     Image(.emptyView)
-                    Text("There’s No Country Added, You Can Add Only 5 Countries.")
+                    Text(AppConstants.AppText.onlyFiveCountries)
                         .foregroundColor(.color808080)
                         .multilineTextAlignment(.center)
                 } else {

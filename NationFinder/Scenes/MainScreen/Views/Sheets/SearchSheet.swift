@@ -30,7 +30,7 @@ struct SearchSheet: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Button("Cancel") {
+                        Button(AppConstants.AppText.cancel) {
                             viewModel.cancelSearchAction()
                         }
                     }
