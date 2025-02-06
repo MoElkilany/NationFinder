@@ -14,6 +14,8 @@ struct NationFinderApp: App {
         WindowGroup {
             SplashFactory.makeSplashView()
         }
+        .modelContainer(for: [CountryModel.self])
+
     }
 }
 

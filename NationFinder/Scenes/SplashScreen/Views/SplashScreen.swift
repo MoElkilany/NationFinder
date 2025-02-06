@@ -10,7 +10,8 @@ import SwiftUI
 struct SplashScreen: View {
     @StateObject var viewModel: SplashViewModel
     @State private var showMainScreen = false
-    
+    @Environment(\.modelContext) private var modelContext
+
     init(viewModel: SplashViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
@@ -25,7 +26,7 @@ struct SplashScreen: View {
                     MainScreenFactory.makeMainScreen(countries: viewModel.countries)
                 }
                 .onAppear {
-                    viewModel.fetchCountries()
+                    viewModel.fetchCountries(modelContext: modelContext)
                 }
                 .onChange(of: viewModel.splashState) { _, newState in
                     if case .loaded = newState {
