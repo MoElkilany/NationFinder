@@ -8,16 +8,20 @@
 
 import XCTest
 @testable import NationFinder
-class MockEndPoint: EndPointProtocol {
-    var url: URL?
-    var error: Error?
 
-    func createURL(urlString: String) throws -> URL {
+class MockCountriesRouter: Router {
+    var baseURL: URL?
+    var error: Error?
+    var methodType: NationFinder.HTTPMethod = .get
+    
+
+    func createURL() throws -> URL {
         if let error = error {
             throw error
         }
-        guard let url = url else {
-            throw AppError.urlError 
+        
+        guard let url = baseURL else {
+            throw AppError.urlError
         }
         return url
     }

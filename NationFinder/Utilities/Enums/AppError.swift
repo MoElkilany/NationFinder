@@ -9,6 +9,7 @@ import Foundation
 
 enum AppError: Error, LocalizedError,Equatable {
     case noData
+    case serverError
     case urlError
     case decodingError
     case networkError(String)
@@ -21,6 +22,8 @@ enum AppError: Error, LocalizedError,Equatable {
             return AppConstants.AppError.urlError
         case .decodingError:
             return AppConstants.AppError.decodingError
+        case .serverError:
+            return AppConstants.AppError.internalServerError
         case .networkError(let error):
             return AppConstants.AppError.networkError + " " + error
         }

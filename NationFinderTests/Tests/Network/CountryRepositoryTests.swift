@@ -11,42 +11,18 @@ import XCTest
 class CountryRepositoryTests: XCTestCase {
     var repository: CountryRepositoryImpl!
     var mockCountryService: MockCountryService!
+    var countriesMockData: CountriesMockData!
 
     override func setUp() {
         super.setUp()
+        countriesMockData = CountriesMockData()
         mockCountryService = MockCountryService()
         repository = CountryRepositoryImpl(apiService: mockCountryService)
     }
 
     func testGetCountriesSuccess() async {
       
-        let expectedCountries = [
-            CountryModel(
-                name: "Turkey",
-                capital: "Ankara",
-                currencies: [Currency(
-                    code: "TRY",
-                    name: "Turkish Lira",
-                    symbol: "₺"
-                )],
-                latlng: [39.9334, 32.8597],
-                flags: FlagsModel(png: "https://flagcdn.com/tr.png"),
-                languages: [LanguagesModel(name: "Turkish")]
-            ),
-            CountryModel(
-                name: "Egypt",
-                capital: "Cairo",
-                currencies: [Currency(
-                    code: "EGP",
-                    name: "Pound",
-                    symbol: "LE"
-                )],
-                latlng: [32.322333, 31.235556],
-                flags: FlagsModel(png: ""),
-                languages: [LanguagesModel(name: "Arabic")]
-            )
-                  
-        ]
+        let expectedCountries = CountriesMockData.allCountries()
         
         mockCountryService.countries = expectedCountries
 

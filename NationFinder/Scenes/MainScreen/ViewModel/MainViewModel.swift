@@ -10,7 +10,7 @@ import Foundation
 
 class MainViewModel: ObservableObject {
     
-    @Published private var currentUserCountry: String = ""
+    @Published  var currentUserCountry: String = ""
     @Published private var locationManager = LocationManager()
     @Published var allCountries: [CountryModel] = []
     @Published var isCountryDetailVisible = false

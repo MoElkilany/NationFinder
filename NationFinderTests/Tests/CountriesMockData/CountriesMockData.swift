@@ -7,18 +7,11 @@
 
 import Foundation
 
-enum CountryCases {
-    case result
-    case empty
-}
-
 @testable import NationFinder
 struct CountriesMockData {
     
-    
-    
-    static func allCountries() -> [CountryModel] {
-         [
+        static func allCountries() -> [CountryModel] {
+        [
             CountryModel(
                 name: "Turkey",
                 capital: "Ankara",
@@ -61,17 +54,13 @@ struct CountriesMockData {
         ]
     }
     
-        
-    
-     func getCountriesData(countryCases:CountryCases) -> [CountryModel] {
+    static func getCountriesData(countryCases:CountryCases) -> [CountryModel] {
         switch countryCases {
         case .result:
             return CountriesMockData.allCountries()
         case .empty:
             return []
         }
-      
     }
-    
     
 }

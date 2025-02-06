@@ -17,6 +17,9 @@ class MockCountryRepository: CountryRepository {
             print("Mock repository throwing error: \(error)") 
             throw error
         }
-        return countries!
+        guard let countries = countries else {
+            return []
+        }
+        return countries
     }
 }

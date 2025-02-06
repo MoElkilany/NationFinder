@@ -12,55 +12,32 @@ class APIServicesTests: XCTestCase {
     var apiService: APIServicesImpl!
     var mockNetworkManager: MockNetworkManager!
     var mockDataDecoder: MockDataDecoder!
-    var mockEndPoint: MockEndPoint!
+    var mockCountriesRouter: MockCountriesRouter!
+    var countriesMockData: CountriesMockData!
+
 
     override func setUp() {
         super.setUp()
+        countriesMockData = CountriesMockData()
         mockNetworkManager = MockNetworkManager()
         mockDataDecoder = MockDataDecoder()
-        mockEndPoint = MockEndPoint()
+        mockCountriesRouter = MockCountriesRouter()
         apiService = APIServicesImpl(
             networkManager: mockNetworkManager,
             decoder: mockDataDecoder,
-            router: mockEndPoint
+            router: mockCountriesRouter
         )
     }
 
     func testFetchCountriesSuccess() async {
       
-        let expectedCountries = [
-            CountryModel(
-                name: "Turkey",
-                capital: "Ankara",
-                currencies: [Currency(
-                    code: "TRY",
-                    name: "Turkish Lira",
-                    symbol: "₺"
-                )],
-                latlng: [39.9334, 32.8597],
-                flags: FlagsModel(png: "https://flagcdn.com/tr.png"),
-                languages: [LanguagesModel(name: "Turkish")]
-            ),
-            CountryModel(
-                name: "Egypt",
-                capital: "Cairo",
-                currencies: [Currency(
-                    code: "EGP",
-                    name: "Pound",
-                    symbol: "LE"
-                )],
-                latlng: [32.322333, 31.235556],
-                flags: FlagsModel(png: ""),
-                languages: [LanguagesModel(name: "Arabic")]
-            )
-                  
-        ]
-        
+        let expectedCountries = CountriesMockData.allCountries()
         
         let jsonData = try! JSONEncoder().encode(expectedCountries)
         mockNetworkManager.data = jsonData
         mockDataDecoder.decodedData = expectedCountries
-        mockEndPoint.url = URL(string: "https://restcountries.com/v2/all")!
+        mockCountriesRouter.baseURL = URL(string: "https://restcountries.com/v2/all")!
+
 
         do {
             let countries = try await apiService.fetchCountries()
@@ -71,13 +48,13 @@ class APIServicesTests: XCTestCase {
     }
 
     func testFetchCountriesFailure() async {
-        mockNetworkManager.error = AppError.noData
+        mockNetworkManager.error = AppError.urlError
 
         do {
             _ = try await apiService.fetchCountries()
             XCTFail("Expected failure, but got success")
         } catch {
-            //            XCTAssertEqual(error as? AppError, AppError.noData)
+            XCTAssertEqual(error as? AppError, AppError.urlError)
         }
     }
 }

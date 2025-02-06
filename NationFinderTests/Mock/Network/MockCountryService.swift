@@ -16,7 +16,10 @@ class MockCountryService: APIServices {
         if let error = error {
             throw error
         }
-        return countries!
+        guard let countries = countries else {
+            return []
+        }
+        return countries
     }
 }
 
