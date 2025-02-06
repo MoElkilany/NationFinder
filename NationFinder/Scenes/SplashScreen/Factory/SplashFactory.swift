@@ -28,11 +28,11 @@ struct SplashFactory {
     private static func makeAPIService() -> APIServices {
         let networkManager = NetworkManager()
         let decoder = DataDecoder()
-        let endPoint = EndPoint()
+        let router = CountriesRouterImpl()
         return APIServices(
             networkManager: networkManager,
             decoder: decoder,
-            endPoint: endPoint
+            router: router
         )
     }
     

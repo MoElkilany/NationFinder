@@ -15,18 +15,18 @@ protocol APIServicesProtocol {
 class APIServices: APIServicesProtocol {
     private let networkManager: NetworkManagerProtocol
     private let decoder: DataDecoderProtocol
-    private let endPoint: EndPointProtocol
+    private let router: Router
     
     init(networkManager: NetworkManagerProtocol,
           decoder: DataDecoderProtocol,
-          endPoint: EndPointProtocol) {
+         router: Router) {
          self.networkManager = networkManager
          self.decoder = decoder
-         self.endPoint = endPoint
+         self.router = router
      }
     
     func fetchCountries() async throws -> [CountryModel] {
-        let url = try endPoint.createURL(urlString: AppConstants.API.countriesEndpoint)
+        let url = try router.createURL()
         let data = try await networkManager.fetchData(from: url)
         return try decoder.decode(data)
     }
