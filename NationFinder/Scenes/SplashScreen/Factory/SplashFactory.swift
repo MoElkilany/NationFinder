@@ -20,16 +20,16 @@ struct SplashFactory {
         return SplashViewModel(repository: repository)
     }
     
-    private static func makeCountryRepository() -> CountryRepository {
+    private static func makeCountryRepository() -> CountryRepositoryImpl {
         let apiService = makeAPIService()
-        return CountryRepository(apiService: apiService)
+        return CountryRepositoryImpl(apiService: apiService)
     }
     
     private static func makeAPIService() -> APIServices {
-        let networkManager = NetworkManager()
-        let decoder = DataDecoder()
+        let networkManager = NetworkManagerImpl()
+        let decoder = DataDecoderImpl()
         let router = CountriesRouterImpl()
-        return APIServices(
+        return APIServicesImpl(
             networkManager: networkManager,
             decoder: decoder,
             router: router

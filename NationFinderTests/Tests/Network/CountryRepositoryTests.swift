@@ -9,13 +9,13 @@ import XCTest
 @testable import NationFinder
 
 class CountryRepositoryTests: XCTestCase {
-    var repository: CountryRepository!
+    var repository: CountryRepositoryImpl!
     var mockCountryService: MockCountryService!
 
     override func setUp() {
         super.setUp()
         mockCountryService = MockCountryService()
-        repository = CountryRepository(apiService: mockCountryService)
+        repository = CountryRepositoryImpl(apiService: mockCountryService)
     }
 
     func testGetCountriesSuccess() async {

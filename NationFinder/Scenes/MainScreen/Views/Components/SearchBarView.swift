@@ -5,15 +5,11 @@
 //  Created by Mohamed Elkilany on 04/02/2025.
 //
 
-
-
-
 import SwiftUI
 struct SearchBarView: View {
     @ObservedObject var viewModel: MainViewModel
-    
+
     var body: some View {
-        
         HStack {
             Text("Nation Finder")
                 .font(.title2)
@@ -34,7 +30,6 @@ struct SearchBarView: View {
                 viewModel.isSearchSelectionSheetOpen.toggle()
             }
         }
-        
     }
 }
 
@@ -45,5 +40,4 @@ struct SearchBarView: View {
 //    init(openSearch: Bool) {
 //        self.openSearch = openSearch
 //    }
-//
-//}
+// }

@@ -8,7 +8,7 @@
 import XCTest
 @testable import NationFinder
 
-class MockNetworkManager: NetworkManagerProtocol {
+class MockNetworkManager: NetworkManager {
     var data: Data?
     var error: Error?
 

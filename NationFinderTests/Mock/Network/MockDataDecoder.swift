@@ -8,7 +8,7 @@
 
 import XCTest
 @testable import NationFinder
-class MockDataDecoder: DataDecoderProtocol {
+class MockDataDecoder: DataDecoder {
     var decodedData: Any?
     var error: Error?
 

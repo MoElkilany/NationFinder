@@ -15,7 +15,6 @@ struct CountryDetailScreen: View {
         ZStack {
             Color(.colorF5F5F5)
                 .ignoresSafeArea()
-            
             VStack {
                 if let country = selectedCountry {
                     CountryFlagView(flagURL: country.flags?.png)

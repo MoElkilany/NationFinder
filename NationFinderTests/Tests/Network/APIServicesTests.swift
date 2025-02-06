@@ -9,7 +9,7 @@ import XCTest
 @testable import NationFinder
 
 class APIServicesTests: XCTestCase {
-    var apiService: APIServices!
+    var apiService: APIServicesImpl!
     var mockNetworkManager: MockNetworkManager!
     var mockDataDecoder: MockDataDecoder!
     var mockEndPoint: MockEndPoint!
@@ -19,10 +19,10 @@ class APIServicesTests: XCTestCase {
         mockNetworkManager = MockNetworkManager()
         mockDataDecoder = MockDataDecoder()
         mockEndPoint = MockEndPoint()
-        apiService = APIServices(
+        apiService = APIServicesImpl(
             networkManager: mockNetworkManager,
             decoder: mockDataDecoder,
-            endPoint: mockEndPoint
+            router: mockEndPoint
         )
     }
 

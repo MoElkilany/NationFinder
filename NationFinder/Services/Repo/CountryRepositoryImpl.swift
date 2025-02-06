@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol CountryRepositoryProtocol {
+protocol CountryRepository {
     func getCountries() async throws -> [CountryModel]
 }
 
-struct CountryRepository: CountryRepositoryProtocol {
-    private let apiService: APIServicesProtocol
+struct CountryRepositoryImpl: CountryRepository {
+    private let apiService: APIServices
     
-    init(apiService: APIServicesProtocol) {
+    init(apiService: APIServices) {
         self.apiService = apiService
     }
     

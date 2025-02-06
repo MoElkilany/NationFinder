@@ -8,7 +8,7 @@
 
 import XCTest
 @testable import NationFinder
-class MockCountryRepository: CountryRepositoryProtocol {
+class MockCountryRepository: CountryRepository {
     var countries: [CountryModel]?
     var error: Error?
 

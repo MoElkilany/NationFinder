@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol DataDecoderProtocol {
+protocol DataDecoder {
     func decode<T: Decodable>(_ data: Data) throws -> T
 }
 
-struct DataDecoder: DataDecoderProtocol {
+struct DataDecoderImpl: DataDecoder {
     func decode<T: Decodable>(_ data: Data) throws -> T {
         do {
             return try JSONDecoder().decode(T.self, from: data)

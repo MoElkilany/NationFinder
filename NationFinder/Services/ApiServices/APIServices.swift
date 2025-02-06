@@ -8,17 +8,17 @@
 
 import Foundation
 
-protocol APIServicesProtocol {
+protocol APIServices {
     func fetchCountries() async throws -> [CountryModel]
 }
 
-class APIServices: APIServicesProtocol {
-    private let networkManager: NetworkManagerProtocol
-    private let decoder: DataDecoderProtocol
+class APIServicesImpl: APIServices {
+    private let networkManager: NetworkManager
+    private let decoder: DataDecoder
     private let router: Router
     
-    init(networkManager: NetworkManagerProtocol,
-          decoder: DataDecoderProtocol,
+    init(networkManager: NetworkManager,
+          decoder: DataDecoder,
          router: Router) {
          self.networkManager = networkManager
          self.decoder = decoder

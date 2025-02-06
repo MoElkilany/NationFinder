@@ -13,9 +13,9 @@ class SplashViewModel: ObservableObject {
     @Published private(set) var countries: [CountryModel] = []
     @Published private(set) var splashState: SplashState = .loading
 
-    private let repository: CountryRepositoryProtocol
+    private let repository: CountryRepository
      
-     init(repository: CountryRepositoryProtocol) {
+     init(repository: CountryRepository) {
          self.repository = repository
      }
      

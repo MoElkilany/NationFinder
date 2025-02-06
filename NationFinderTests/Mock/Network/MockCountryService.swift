@@ -8,7 +8,7 @@
 
 import XCTest
 @testable import NationFinder
-class MockCountryService: APIServicesProtocol {
+class MockCountryService: APIServices {
     var countries: [CountryModel]?
     var error: Error?
 
