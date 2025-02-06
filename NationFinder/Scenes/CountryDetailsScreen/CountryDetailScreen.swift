@@ -41,11 +41,6 @@ struct CountryDetailScreen: View {
     }
 }
 
-#Preview {
-    CountryDetailScreen(selectedCountry: nil)
-}
-
-
 
 
 

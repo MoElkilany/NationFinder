@@ -18,7 +18,7 @@ struct AdditionalCountriesView: View {
             Button {
                 viewModel.clearSelectedCountries()
             } label: {
-                Image(viewModel.selectedFiveCountries.isEmpty ? .grayRecycleBin : .redRecycleBin)
+                Image(viewModel.selectedCountriesList.isEmpty ? .grayRecycleBin : .redRecycleBin)
             }
         }
     }

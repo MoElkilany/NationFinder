@@ -15,30 +15,41 @@ struct CountrySelectionSheet: View {
             
             VStack{
                 SearchTextFieldView { text in
-                    viewModel.searchText = text
+                    viewModel.searchQuery = text
                 }
                 .padding(.horizontal)
                 
                 List {
-                    ForEach(viewModel.countries, id: \.self) { item in
+      
+                    ForEach(viewModel.searchList, id: \.self) { item in
                         HStack {
-                            SmallFlagView(url: item.flags?.png ?? "https://flagcdn.com/w320/eg.png")
+                            SmallFlagView(
+                                url: item.flags?.png ?? "https://flagcdn.com/w320/eg.png"
+                            )
                             Text(item.name ?? "")
                             Spacer()
-                            Image(viewModel.tempSelectedCountries.contains(item) == true ? .checkIcon : .uncheckIcon)
-                            
+                            Image(
+                                viewModel.tempSelectedCountriesList
+                                    .contains(
+                                        item
+                                    ) == true ? .checkIcon : .uncheckIcon
+                            )
+                                
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            viewModel.toggleCountrySelection(item)
+                            viewModel.countrySelection(item)
                         }
                     }
                 }
+                
+                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
-                        viewModel.finalizeCountrySelection()
+                        viewModel.confirmSelectedCountries()
+                        viewModel.cancelSearchAction()
                     }
                 }
             }

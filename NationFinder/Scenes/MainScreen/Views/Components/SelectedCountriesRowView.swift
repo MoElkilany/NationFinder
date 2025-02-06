@@ -8,7 +8,7 @@
 
 
 import SwiftUI
-struct OnlyFiveCountryRow: View {
+struct SelectedCountriesRowView: View {
     let country: CountryModel
     
     var body: some View {

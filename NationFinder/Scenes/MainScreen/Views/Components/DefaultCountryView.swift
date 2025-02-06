@@ -15,18 +15,18 @@ struct DefaultCountryView: View {
         VStack {
             TitleRowView(title: "Default country :")
             HStack(spacing: 12) {
-                SmallFlagView(url: viewModel.getCurrentUserCountry()?.flags?.png ?? "https://flagcdn.com/w320/eg.png")
+                SmallFlagView(url: viewModel.fetchCurrentUserCountry()?.flags?.png ?? "https://flagcdn.com/w320/eg.png")
                 VStack(alignment: .leading) {
-                    Text(viewModel.getCurrentUserCountry()?.name ?? "")
+                    Text(viewModel.fetchCurrentUserCountry()?.name ?? "")
                         .foregroundColor(.color0B0C26)
-                    Text(viewModel.getCurrentUserCountry()?.capital ?? "")
+                    Text(viewModel.fetchCurrentUserCountry()?.capital ?? "")
                         .foregroundColor(.color808080)
                 }
                 Spacer()
                 VStack(alignment: .center) {
-                    Text(viewModel.getCurrentUserCountry()?.currencies?.first?.name ?? "")
+                    Text(viewModel.fetchCurrentUserCountry()?.currencies?.first?.name ?? "")
                         .foregroundColor(.color808080)
-                    Text(viewModel.getCurrentUserCountry()?.currencies?.first?.symbol ?? "")
+                    Text(viewModel.fetchCurrentUserCountry()?.currencies?.first?.symbol ?? "")
                         .fontWeight(.bold)
                         .foregroundColor(.color808080)
                 }
@@ -37,8 +37,8 @@ struct DefaultCountryView: View {
         }
         .contentShape(Rectangle())
         .onTapGesture {
-            viewModel.selectedCountry = viewModel.getCurrentUserCountry()
-            viewModel.isShowingCountryDetail = true
+            viewModel.selectedCountry = viewModel.fetchCurrentUserCountry()
+            viewModel.isCountryDetailVisible = true
         }
     }
 }

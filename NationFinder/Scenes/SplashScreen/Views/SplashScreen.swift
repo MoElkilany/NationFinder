@@ -22,7 +22,7 @@ struct SplashScreen: View {
             SplashContentView(splashState: viewModel.splashState)
             
                 .fullScreenCover(isPresented: $showMainScreen) {
-                    MainScreen(countries: viewModel.countries)
+                    MainScreenFactory.makeMainScreen(countries: viewModel.countries)
                 }
                 .onAppear {
                     viewModel.fetchCountries()

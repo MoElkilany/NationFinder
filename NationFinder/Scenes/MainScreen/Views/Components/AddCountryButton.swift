@@ -13,7 +13,7 @@ struct AddCountryButton: View {
     
     var body: some View {
         Button {
-            viewModel.openSheet.toggle()
+            viewModel.isCountrySelectionSheetOpen.toggle()
         } label: {
             HStack {
                 Text(" + Add Country")

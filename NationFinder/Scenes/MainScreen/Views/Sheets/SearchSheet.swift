@@ -13,7 +13,7 @@ struct SearchSheet: View {
         NavigationStack {
             VStack {
                 SearchTextFieldView { text in
-                    viewModel.searchText = text
+                    viewModel.searchQuery = text
                 }
                 List {
                     ForEach(viewModel.searchList, id: \.self) { item in
@@ -24,14 +24,14 @@ struct SearchSheet: View {
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            viewModel.selectCountry(item)
+                            viewModel.displayCountryDetail(item)
                         }
                     }
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button("Cancel") {
-                            viewModel.cancelSearch()
+                            viewModel.cancelSearchAction()
                         }
                     }
                 }

@@ -31,7 +31,7 @@ struct SearchBarView: View {
             .borderedBackground( borderColor: .color121441, backgroundColor: .color121441)
             .contentShape(Rectangle())
             .onTapGesture {
-                viewModel.openSearch.toggle()
+                viewModel.isSearchSelectionSheetOpen.toggle()
             }
         }
         
