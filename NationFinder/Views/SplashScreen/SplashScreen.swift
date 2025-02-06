@@ -11,7 +11,7 @@ struct SplashScreen: View {
     @StateObject var viewModel: SplashViewModel
     @State private var showMainScreen = false
     
-    init(viewModel: SplashViewModel = SplashViewModel()) {
+    init(viewModel: SplashViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
@@ -41,7 +41,7 @@ struct SplashScreen: View {
              MainScreen(countries: viewModel.countries)
         }
         .onAppear {
-            viewModel.loadCountryData()
+            viewModel.fetchCountries()
         }
         .onChange(of: viewModel.splashState) { _, newState in
             if case .loaded = newState {

@@ -13,29 +13,37 @@ class SplashViewModel: ObservableObject {
     @Published private(set) var countries: [CountryModel] = []
     @Published private(set) var splashState: SplashState = .loading
 
-    var repository: CountryRepositoryProtocol
+    private let repository: CountryRepositoryProtocol
      
-     init(repository: CountryRepositoryProtocol = CountryRepository()) {
+     init(repository: CountryRepositoryProtocol) {
          self.repository = repository
      }
      
-    
     @MainActor
-       func loadCountryData() {
-           Task {
-               do {
-                   let countyData = try await repository.getCountries()
-                   if countyData.isEmpty {
-                       splashState = .empty
-                   } else {
-                       countries = countyData
-                       splashState = .loaded
-                   }
-               } catch let error as AppError {
-                splashState = .error("Error: \(error)")
-               } catch {
-                splashState = .error("Internal Server Error")
-               }
-           }
-       }
+    func fetchCountries() {
+        Task {
+            do {
+                let countryData = try await repository.getCountries()
+                handleSuccess(with: countryData)
+            } catch {
+                handleFailure(message: error is AppError ? "Error: \(error)" : "Internal Server Error")
+            }
+        }
+    }
+    
+
+    private func handleSuccess(with countryData: [CountryModel]) {
+        if countryData.isEmpty {
+            splashState = .empty
+        } else {
+            countries = countryData
+            splashState = .loaded
+        }
+    }
+
+    private func handleFailure(message: String) {
+        splashState = .error(message)
+    }
+
 }
+
