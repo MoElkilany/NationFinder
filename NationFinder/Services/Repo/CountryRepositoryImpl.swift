@@ -6,19 +6,23 @@
 //
 
 import Foundation
+import SwiftData
+import SwiftUI
 
 protocol CountryRepository {
     func getCountries() async throws -> [CountryModel]
 }
 
 struct CountryRepositoryImpl: CountryRepository {
-    private let apiService: APIServices
     
+    private let apiService: APIServices
+
     init(apiService: APIServices) {
         self.apiService = apiService
-    }
-    
+   }
+
     func getCountries() async throws -> [CountryModel] {
         return try await apiService.fetchCountries()
     }
+
 }
