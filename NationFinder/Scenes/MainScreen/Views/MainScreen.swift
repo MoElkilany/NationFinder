@@ -19,7 +19,6 @@ struct MainScreen: View {
                     .ignoresSafeArea()
                 VStack(spacing: 20) {
                     SearchBarView(viewModel:viewModel)
-//                    SearchBarView(viewModel: SearchBarViewModel(openSearch: viewModel.openSearch)  )
                     DefaultCountryView(viewModel: viewModel)
                     AdditionalCountriesView(viewModel: viewModel)
                     SelectedCountriesListView(viewModel: viewModel)
