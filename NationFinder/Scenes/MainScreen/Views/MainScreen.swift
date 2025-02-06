@@ -39,6 +39,16 @@ struct MainScreen: View {
         .sheet(isPresented: $viewModel.isSearchSelectionSheetOpen) {
             SearchSheet(viewModel: viewModel)
         }
+        .alert(isPresented: $viewModel.isAlertOpen) {
+            Alert(
+                title: Text(AppConstants.AppText.deleteConfirmation),
+                message: Text(AppConstants.AppText.deleteCountries),
+                primaryButton: .destructive(Text(AppConstants.AppText.delete)) {
+                    viewModel.clearSelectedCountries()
+                },
+                secondaryButton: .cancel()
+            )
+        }
     }
 }
 

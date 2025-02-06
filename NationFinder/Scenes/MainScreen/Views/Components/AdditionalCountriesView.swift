@@ -16,10 +16,11 @@ struct AdditionalCountriesView: View {
                 .foregroundColor(.color0B0C26)
             Spacer()
             Button {
-                viewModel.clearSelectedCountries()
+                    viewModel.isAlertOpen.toggle()
             } label: {
                 Image(viewModel.selectedCountriesList.isEmpty ? .grayRecycleBin : .redRecycleBin)
             }
+            .disabled(viewModel.selectedCountriesList.isEmpty)
         }
     }
 }

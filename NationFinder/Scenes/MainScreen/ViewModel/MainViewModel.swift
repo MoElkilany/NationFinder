@@ -17,6 +17,7 @@ class MainViewModel: ObservableObject {
     @Published var selectedCountry: CountryModel?
     @Published var isCountrySelectionSheetOpen = false
     @Published var isSearchSelectionSheetOpen = false
+    @Published var isAlertOpen = false
     @Published var selectedCountriesList: [CountryModel] = []
     @Published var tempSelectedCountriesList: [CountryModel] = []
     @Published var searchQuery = ""

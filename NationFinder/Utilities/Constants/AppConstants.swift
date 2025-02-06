@@ -31,13 +31,16 @@ struct AppConstants {
         static let searchForCountry = "Search For Country"
         static let search = "Search"
         static let defaultCountry = "Default country :"
-        static let additionalCountry = "Default countries :"
+        static let additionalCountry = "Additional countries :"
         static let addCountry = " + Add Country"
         static let turkey = "Turkey"
         static let currency = "Currency:"
         static let country = "Country:"
         static let capital = "Capital:"
         static let languages = "Languages:"
+        static let deleteConfirmation = "Delete Confirmation?"
+        static let deleteCountries = "Are you sure you want to delete this countries?"
+        static let delete = "Delete"
 
 
     }

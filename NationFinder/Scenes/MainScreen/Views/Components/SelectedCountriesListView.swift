@@ -15,10 +15,12 @@ struct SelectedCountriesListView: View {
         ScrollView{
             VStack(spacing: 12) {
                 if viewModel.selectedCountriesList.isEmpty {
+                    Spacer()
                     Image(.emptyView)
                     Text(AppConstants.AppText.onlyFiveCountries)
                         .foregroundColor(.color808080)
                         .multilineTextAlignment(.center)
+                    Spacer()
                 } else {
                     ForEach(viewModel.selectedCountriesList, id: \.self) { item in
                         SelectedCountriesRowView(country: item)
@@ -28,7 +30,7 @@ struct SelectedCountriesListView: View {
                                 viewModel.isCountryDetailVisible = true
                             }
                     }
-                    Spacer()
+             
                 }
             }
         }
