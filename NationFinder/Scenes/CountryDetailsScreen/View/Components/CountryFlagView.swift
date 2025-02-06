@@ -12,10 +12,10 @@ struct CountryFlagView: View {
     let flagURL: String?
     
     var body: some View {
-        AsyncImage(url: URL(string: flagURL ?? "https://flagcdn.com/w320/eg.png")) { image in
+        AsyncImage(url: URL(string: flagURL ?? "" )) { image in
             image.resizable().scaledToFit()
         } placeholder: {
-            ProgressView()
+            Image(.flagPlaceholder)
         }
         .frame(maxWidth: .infinity, maxHeight: 200)
         .cornerRadius(12)

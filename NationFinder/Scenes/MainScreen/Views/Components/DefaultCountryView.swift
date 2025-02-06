@@ -15,7 +15,7 @@ struct DefaultCountryView: View {
         VStack {
             TitleRowView(title: AppConstants.AppText.defaultCountry)
             HStack(spacing: 12) {
-                SmallFlagView(url: viewModel.fetchCurrentUserCountry()?.flags?.png ?? "https://flagcdn.com/w320/eg.png")
+                SmallFlagView(url: viewModel.fetchCurrentUserCountry()?.flags?.png ?? "")
                 VStack(alignment: .leading) {
                     Text(viewModel.fetchCurrentUserCountry()?.name ?? "")
                         .foregroundColor(.color0B0C26)

@@ -24,7 +24,7 @@ struct CountrySelectionSheet: View {
                     ForEach(viewModel.searchList, id: \.self) { item in
                         HStack {
                             SmallFlagView(
-                                url: item.flags?.png ?? "https://flagcdn.com/w320/eg.png"
+                                url: item.flags?.png ?? ""
                             )
                             Text(item.name ?? "")
                             Spacer()
