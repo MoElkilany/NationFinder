@@ -37,3 +37,13 @@ struct SearchBarView: View {
         
     }
 }
+
+
+//class SearchBarViewModel: ObservableObject {
+//    @Published var openSearch: Bool
+//    
+//    init(openSearch: Bool) {
+//        self.openSearch = openSearch
+//    }
+//
+//}

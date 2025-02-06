@@ -60,7 +60,6 @@ class MainViewModelTests: XCTestCase {
     }
 
     override func tearDown() {
-        viewModel = nil
         mockCountries = nil
         super.tearDown()
     }
@@ -157,3 +156,32 @@ class MainViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.tempSelectedCountries.isEmpty)
     }
 }
+
+
+/*
+ var mockCountries: CountriesMockData!
+
+ override func setUp() {
+     super.setUp()
+     mockCountries = CountriesMockData()
+ }
+
+ override func tearDown() {
+     mockCountries = nil
+     super.tearDown()
+ }
+
+ func testInitialization() {
+     // Given
+     let countries = mockCountries.getCountriesData(countryCases: .empty)
+     let viewModel = MainViewModel(countries: countries )
+     
+     XCTAssertEqual(viewModel.countries, countries )
+     XCTAssertTrue(viewModel.selectedFiveCountries.isEmpty)
+     XCTAssertTrue(viewModel.tempSelectedCountries.isEmpty)
+     XCTAssertFalse(viewModel.openSheet)
+     XCTAssertFalse(viewModel.openSearch)
+     XCTAssertFalse(viewModel.isShowingCountryDetail)
+//        XCTAssertNil(viewModel.selectedCountry)
+ }
+ */

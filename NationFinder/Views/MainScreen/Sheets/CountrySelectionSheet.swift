@@ -20,7 +20,7 @@ struct CountrySelectionSheet: View {
                 .padding(.horizontal)
                 
                 List {
-                    ForEach(viewModel.searchTempList, id: \.self) { item in
+                    ForEach(viewModel.countries, id: \.self) { item in
                         HStack {
                             SmallFlagView(url: item.flags?.png ?? "https://flagcdn.com/w320/eg.png")
                             Text(item.name ?? "")

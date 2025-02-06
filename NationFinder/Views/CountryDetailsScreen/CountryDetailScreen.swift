@@ -19,11 +19,8 @@ struct CountryDetailScreen: View {
             VStack {
                 if let country = selectedCountry {
                     CountryFlagView(flagURL: country.flags?.png)
-                    
                     Spacer().frame(height: 50)
-                    
                     CountryInfoSection(country: country)
-                    
                     Spacer()
                 }
             }

@@ -48,12 +48,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         switch manager.authorizationStatus {
         case .authorizedWhenInUse, .authorizedAlways:
             requestLocation()
-        case .denied, .restricted:
+        default:
             DispatchQueue.main.async {
                 self.userCountry = ""
             }
-        default:
-            break
         }
     }
 }

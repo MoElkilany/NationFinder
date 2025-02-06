@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MainScreen: View {
     
-    @StateObject var viewModel: MainViewModel
-    @StateObject var locationManager = LocationManager()
+    @StateObject private var viewModel: MainViewModel
+    @StateObject private var locationManager = LocationManager()
 
         init(countries: [CountryModel]) {
             _viewModel = StateObject(
@@ -24,7 +24,8 @@ struct MainScreen: View {
                 Color(UIColor.colorF5F5F5.cgColor)
                     .ignoresSafeArea()
                 VStack(spacing: 20) {
-                    SearchBarView(viewModel: viewModel)
+                    SearchBarView(viewModel:viewModel)
+//                    SearchBarView(viewModel: SearchBarViewModel(openSearch: viewModel.openSearch)  )
                     DefaultCountryView(viewModel: viewModel)
                     AdditionalCountriesView(viewModel: viewModel)
                     OnlyFiveCountriesView(viewModel: viewModel)

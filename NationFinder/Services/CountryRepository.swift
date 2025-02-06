@@ -14,7 +14,7 @@ protocol CountryRepositoryProtocol {
 struct CountryRepository: CountryRepositoryProtocol {
     private let apiService: APIServicesProtocol
     
-    init(apiService: APIServicesProtocol = APIServices()) {
+    init(apiService: APIServicesProtocol) {
         self.apiService = apiService
     }
     

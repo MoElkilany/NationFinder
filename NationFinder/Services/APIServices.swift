@@ -17,9 +17,9 @@ class APIServices: APIServicesProtocol {
     private let decoder: DataDecoderProtocol
     private let endPoint: EndPointProtocol
     
-    init(networkManager: NetworkManagerProtocol = NetworkManager(),
-          decoder: DataDecoderProtocol = DataDecoder(),
-          endPoint: EndPointProtocol = EndPoint()) {
+    init(networkManager: NetworkManagerProtocol,
+          decoder: DataDecoderProtocol,
+          endPoint: EndPointProtocol) {
          self.networkManager = networkManager
          self.decoder = decoder
          self.endPoint = endPoint

@@ -20,12 +20,15 @@ class MainViewModel: ObservableObject {
     @Published var tempSelectedCountries: [CountryModel] = []
     @Published var searchText = ""
     
-    var searchList: [CountryModel] {
-        if searchText.isEmpty {
-            return countries
-        } else {
-            return countries.filter { $0.name?.localizedCaseInsensitiveContains(searchText) ?? false }
+    
+    
+    init(countries: [CountryModel]) {
+            self.countries = countries
         }
+    
+    
+    var searchList: [CountryModel] {
+        searchText.isEmpty  ?  countries :  countries.filter { $0.name?.localizedCaseInsensitiveContains(searchText) ?? false }
     }
     
     
@@ -37,9 +40,7 @@ class MainViewModel: ObservableObject {
         }
     }
     
-    init(countries: [CountryModel]) {
-            self.countries = countries
-        }
+  
     
     func getCurrentUserCountry() -> CountryModel? {
         return countries.first(where: { $0.name == currentCountry }) ??
