@@ -28,7 +28,6 @@ struct SelectedCountriesListView: View {
                                 viewModel.isCountryDetailVisible = true
                             }
                     }
-                    Spacer()
                 }
             }
         }

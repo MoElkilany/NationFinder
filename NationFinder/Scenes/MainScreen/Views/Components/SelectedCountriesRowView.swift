@@ -13,7 +13,7 @@ struct SelectedCountriesRowView: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            SmallFlagView(url: country.flags?.png ?? "https://flagcdn.com/w320/eg.png")
+            SmallFlagView(url: country.flags?.png  ?? "")
             Text(country.name ?? "")
                 .foregroundColor(.color808080)
            

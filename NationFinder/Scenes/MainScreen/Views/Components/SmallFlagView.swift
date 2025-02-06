@@ -17,7 +17,9 @@ struct SmallFlagView: View {
                 .resizable()
                 .scaledToFit()
         } placeholder: {
-            ProgressView()
+            Image(.flagPlaceholder)
+                .resizable()
+                .frame(width: 24, height: 24, alignment: .center)
         }
         .frame(width: 50, height: 50)
         .cornerRadius(4)
