@@ -7,22 +7,25 @@
 
 import Foundation
 
-enum AppError: Error, LocalizedError {
+enum AppError: Error, LocalizedError,Equatable {
     case noData
+    case serverError
     case urlError
     case decodingError
-    case networkError(Error)
+    case networkError(String)
 
     var errorDescription: String? {
         switch self {
         case .noData:
-            return "No data received from the server."
+            return AppConstants.AppError.noData
         case .urlError:
-            return "Invalid URL."
+            return AppConstants.AppError.urlError
         case .decodingError:
-            return "Failed to decode data."
+            return AppConstants.AppError.decodingError
+        case .serverError:
+            return AppConstants.AppError.internalServerError
         case .networkError(let error):
-            return "Network error: \(error.localizedDescription)"
+            return AppConstants.AppError.networkError + " " + error
         }
     }
 }
