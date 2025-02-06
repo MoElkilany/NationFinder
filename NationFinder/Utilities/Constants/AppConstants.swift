@@ -17,7 +17,7 @@ struct AppConstants {
         static let urlError = "Invalid URL."
         static let decodingError = "Failed to decode data."
         static let networkError = "Network error: "
-        static let internalServerError = "Internal Server Error"
+        static let internalServerError = "Server Error"
         static let appError = "Error: "
     }
     
